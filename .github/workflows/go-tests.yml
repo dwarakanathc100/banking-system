@@ -1,13 +1,14 @@
-name: Go Test Workflow
+name: Go Tests
 
 on:
   push:
-    - '**'
+    branches:
+      - main
+      - 'feature/*'
   pull_request:
-    - '**'
-workflow_dispatch:
+
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,13 +18,10 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
-          go-version: '1.21'
+          go-version: '1.22'   # set your Go version here
 
       - name: Install dependencies
         run: go mod tidy
 
-      - name: Run Unit & Integration Tests
-        run: go test ./... -v
-
-      - name: Run Benchmark Tests
-        run: go test ./useraccount -bench=. -benchmem
+      - name: Run tests
+        run: go test -v ./...
