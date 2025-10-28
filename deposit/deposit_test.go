@@ -12,7 +12,7 @@ func TestDeposit(t *testing.T) {
 		if err != nil {
 			t.Errorf("unexpected error: %v", err)
 		}
-		if u.Balance != 15 {
+		if u.Balance != 150 {
 			t.Errorf("Expected 150, got %f", u.Balance)
 		}
 	})
