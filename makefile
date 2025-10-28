@@ -1,9 +1,7 @@
-GO=go
-PKG=./...
-FEATURE_DIR=./features
 
 
-all-tests:
+
+test:
 	go test ./... -v
 bench-mark:
 	go test ./useraccount -bench=. -benchmem
