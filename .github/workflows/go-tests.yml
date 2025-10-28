@@ -2,11 +2,17 @@ name: Go Test Workflow
 
 on:
   push:
-    - main
-    - 'feature/*'
+    branches:
+      - main
+      - master
+      - 'feature/**'
   pull_request:
-    - '**'
-workflow_dispatch:
+    branches:
+      - main
+      - master
+      - 'feature/**'
+  workflow_dispatch:
+
 jobs:
   build:
     runs-on: ubuntu-latest
