@@ -6,8 +6,8 @@ import (
 
 func TestUserFunctions(t *testing.T) {
 	t.Run("CreateUser_ShouldInitializeCorrectly", func(t *testing.T) {
-		u := CreateUser(1, "Dwarkanath", "ACC123", "dwark@example.com", "9876543210", 1000)
-		if u.Name != "Dwarkanath" {
+		u := CreateUser(1, "Ram", "ACC123", "dwark@example.com", "9876543210", 1000)
+		if u.Name != "Ram" {
 			t.Errorf("Expected name Dwarkanath, got %s", u.Name)
 		}
 		if !u.IsActive {
@@ -16,7 +16,7 @@ func TestUserFunctions(t *testing.T) {
 	})
 
 	t.Run("UpdateBalance_ShouldIncreaseBalance", func(t *testing.T) {
-		u := CreateUser(2, "Gaurak", "ACC456", "gaurak@example.com", "9998887777", 100)
+		u := CreateUser(2, "Raj", "ACC456", "gaurak@example.com", "9998887777", 100)
 		u.UpdateBalance(50)
 		if u.Balance != 150 {
 			t.Errorf("Expected 150, got %f", u.Balance)
@@ -36,7 +36,7 @@ func TestUserFunctions(t *testing.T) {
 }
 
 func BenchmarkCreateUser(b *testing.B) {
-	for i := 0; i < b.N; i++ { //10000
+	for i := 0; i < b.N; i++ {
 		CreateUser(1, "User", "ACC001", "user@example.com", "12345", 1000)
 	}
 }
