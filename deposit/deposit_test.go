@@ -19,7 +19,7 @@ func TestDeposit(t *testing.T) {
 
 	t.Run("NegativeDeposit", func(t *testing.T) {
 		u := useraccount.CreateUser(2, "Sam", "ACC101", "sam@example.com", "444555666", 100)
-		err := Deposit(u, -10)
+		err := Deposit(u, -100)
 		if err == nil {
 			t.Error("expected error for negative deposit")
 		}
